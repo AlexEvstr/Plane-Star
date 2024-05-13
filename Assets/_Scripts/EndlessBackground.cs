@@ -8,6 +8,7 @@ public class EndlessBackground : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         _zeroPosition = transform.position;
         _middleOfBackground = GetComponent<BoxCollider2D>().size.x / 2;
     }
