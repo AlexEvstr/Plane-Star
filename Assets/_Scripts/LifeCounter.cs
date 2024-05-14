@@ -5,6 +5,7 @@ using System.Collections;
 public class LifeCounter : MonoBehaviour
 {
     [SerializeField] private GameObject _losePanel;
+    [SerializeField] private GameButton _gameButton;
 
     public TMP_Text lifeText;
     private int lives;
@@ -47,6 +48,7 @@ public class LifeCounter : MonoBehaviour
     private IEnumerator ShowLosePanel()
     {
         yield return new WaitForSeconds(0.5f);
+        _gameButton.PlayGameoverSound();
         _losePanel.SetActive(true);
         Time.timeScale = 0;
     }

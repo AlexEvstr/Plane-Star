@@ -8,6 +8,7 @@ public class CollisionDetector : MonoBehaviour
     [SerializeField] private CoinCounter _coinCounter;
 
     [SerializeField] private GameObject _enemyExplosion;
+    [SerializeField] private GameButton _gameButton;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,12 +16,15 @@ public class CollisionDetector : MonoBehaviour
         {
             StartCoroutine(ObjectCollision(collision.gameObject));
 
+            _gameButton.PlayCoinSound();
+
             _coinCounter.AddCoins(1);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             _lifeCounter.DecreaseLife();
 
+            _gameButton.PlayExplosionSound();
 
             GameObject explosion = Instantiate(_enemyExplosion);
             explosion.transform.position = collision.gameObject.transform.position;
@@ -32,6 +36,8 @@ public class CollisionDetector : MonoBehaviour
         else if (collision.gameObject.CompareTag("Heart"))
         {
             _lifeCounter.IncreaseLife();
+
+            _gameButton.PlayHeartSound();
 
             StartCoroutine(ObjectCollision(collision.gameObject));
         }

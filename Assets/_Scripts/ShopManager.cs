@@ -122,6 +122,8 @@ public class ShopManager : MonoBehaviour
             {
                 colors.normalColor = Color.green; // Подсвечиваем выбранный самолет зеленым цветом
                 colors.selectedColor = Color.green; // Подсвечиваем выбранный самолет зеленым цветом
+                colors.highlightedColor = Color.green;
+                colors.disabledColor = Color.green;
             }
             else
             {
