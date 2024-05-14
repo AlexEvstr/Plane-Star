@@ -2,33 +2,33 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public float speed = 5.0f; // Скорость движения персонажа
-    public GameObject directionArrow; // Объект стрелки на сцене
-    public float rotationReturnSpeed = 2.0f; // Скорость возврата вращения
-    public float rotationSpeed = 5.0f; // Скорость плавного вращения
+    public float speed = 5.0f;
+    public GameObject directionArrow; 
+    public float rotationReturnSpeed = 2.0f;
+    public float rotationSpeed = 5.0f;
 
-    private Vector3 startTouchPosition; // Начальная позиция касания
-    private Vector3 moveDirection = Vector3.zero; // Направление движения
-    private bool isMoving = false; // Переменная для отслеживания состояния движения
-    private Quaternion initialRotation; // Начальное положение вращения
-    private Quaternion targetRotation; // Целевое положение вращения
+    private Vector3 startTouchPosition; 
+    private Vector3 moveDirection = Vector3.zero;
+    private bool isMoving = false;
+    private Quaternion initialRotation;
+    private Quaternion targetRotation;
 
     void Start()
     {
-        initialRotation = transform.rotation; // Сохраняем начальное положение вращения
+        initialRotation = transform.rotation;
     }
 
     void Update()
     {
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0); // Получаем первое касание
+            Touch touch = Input.GetTouch(0);
 
             switch (touch.phase)
             {
                 case TouchPhase.Began:
                     startTouchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, Camera.main.transform.position.z));
-                    directionArrow.SetActive(true); // Активируем стрелку
+                    directionArrow.SetActive(true);
                     break;
 
                 case TouchPhase.Moved:
@@ -44,7 +44,7 @@ public class CharacterController : MonoBehaviour
                 case TouchPhase.Ended:
                     isMoving = false;
                     moveDirection = Vector3.zero;
-                    directionArrow.SetActive(false); // Деактивируем стрелку
+                    directionArrow.SetActive(false);
                     break;
             }
         }
@@ -56,7 +56,6 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            // Плавно возвращаем персонажа в начальное положение вращения
             transform.rotation = Quaternion.Lerp(transform.rotation, initialRotation, rotationReturnSpeed * Time.deltaTime);
         }
     }
