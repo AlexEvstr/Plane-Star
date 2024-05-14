@@ -2963,7 +2963,6 @@ GameObject:
   - component: {fileID: 1884623005}
   - component: {fileID: 1884623004}
   - component: {fileID: 1884623006}
-  - component: {fileID: 1884623007}
   - component: {fileID: 1884623008}
   - component: {fileID: 1884623009}
   m_Layer: 0
@@ -3058,81 +3057,6 @@ MonoBehaviour:
   directionArrow: {fileID: 47985736}
   rotationReturnSpeed: 2
   rotationSpeed: 5
---- !u!60 &1884623007
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884623003}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1414286, y: 0.5}
-    newSize: {x: 7.99, y: 3.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.43729478, y: 0.12344235}
-      - {x: -0.37755954, y: 0.042225182}
-      - {x: -0.09417224, y: 0.04961449}
-      - {x: -0.06010151, y: 0.01794231}
-      - {x: -0.0017364621, y: 0.0048747063}
-      - {x: 0.06504363, y: 0.024936795}
-      - {x: 0.0838418, y: 0.060608625}
-      - {x: 0.06933999, y: 0.0845058}
-      - {x: 0.19482929, y: 0.23822272}
-      - {x: 0.43284503, y: 0.2540068}
-      - {x: 0.44095793, y: 0.22509468}
-      - {x: 0.35797763, y: 0.11449194}
-      - {x: 0.3654321, y: 0.071487665}
-      - {x: 0.5214277, y: 0.079960465}
-      - {x: 0.5576471, y: -0.04457271}
-      - {x: 0.5365016, y: -0.14471984}
-      - {x: 0.35491848, y: -0.16505039}
-      - {x: 0.37378308, y: -0.22568715}
-      - {x: 0.33407775, y: -0.25382012}
-      - {x: 0.29928786, y: -0.24771774}
-      - {x: 0.2712136, y: -0.19308388}
-      - {x: 0.2887184, y: -0.16356373}
-      - {x: 0.10573292, y: -0.15378106}
-      - {x: -0.17003453, y: -0.09905803}
-      - {x: -0.43532652, y: -0.04500878}
-      - {x: -0.45459515, y: -0.10582185}
-      - {x: -0.48822802, y: -0.10958408}
-      - {x: -0.5053894, y: -0.07437885}
-      - {x: -0.5232851, y: -0.022051573}
-      - {x: -0.5785568, y: 0.120038405}
-  m_UseDelaunayMesh: 0
 --- !u!50 &1884623008
 Rigidbody2D:
   serializedVersion: 4
@@ -3188,6 +3112,7 @@ GameObject:
   - component: {fileID: 1910184539}
   - component: {fileID: 1910184540}
   - component: {fileID: 1910184541}
+  - component: {fileID: 1910184542}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3281,6 +3206,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 1043097655}
+--- !u!114 &1910184542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910184535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b0077a14c70416abd6f36d085182b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plane: {fileID: 1884623003}
+  _sprites:
+  - {fileID: 21300000, guid: 6f717d6c454bc4e3ca5606990ca62455, type: 3}
+  - {fileID: 21300000, guid: 32ce6cb0175754d67a297afb0f54d303, type: 3}
+  - {fileID: 21300000, guid: 223ed44738f8b418191c1403cf660738, type: 3}
+  - {fileID: 21300000, guid: 1dbf604f7040a4b6da2f6dd74c57b3f7, type: 3}
+  - {fileID: 21300000, guid: 87d0793906d80456d86564b855758453, type: 3}
+  - {fileID: 21300000, guid: 19d46cf3a5fc146eebea0ee1058dfced, type: 3}
+  - {fileID: 21300000, guid: 0eb9774c42e224bceaed92e1bbb4f8c8, type: 3}
+  - {fileID: 21300000, guid: bb4c3a6e5783b4bfebde77cf411fa42c, type: 3}
+  - {fileID: 21300000, guid: c748e87f5462747ab9de3f1867138a87, type: 3}
+  - {fileID: 21300000, guid: 030c69414534d45ad92697e84638ac03, type: 3}
 --- !u!1 &1961004045
 GameObject:
   m_ObjectHideFlags: 0
