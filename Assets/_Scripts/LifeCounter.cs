@@ -1,8 +1,11 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class LifeCounter : MonoBehaviour
 {
+    [SerializeField] private GameObject _losePanel;
+
     public TMP_Text lifeText;
     private int lives;
     private const int maxLives = 4;
@@ -19,6 +22,11 @@ public class LifeCounter : MonoBehaviour
         {
             lives--;
             UpdateLifeText();
+
+            if (lives == 0)
+            {
+                StartCoroutine(ShowLosePanel());
+            }
         }
     }
 
@@ -34,5 +42,12 @@ public class LifeCounter : MonoBehaviour
     private void UpdateLifeText()
     {
         lifeText.text = "x" + lives.ToString();
+    }
+
+    private IEnumerator ShowLosePanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _losePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 }
