@@ -7,11 +7,13 @@ public class CollisionDetector : MonoBehaviour
     [SerializeField] private LifeCounter _lifeCounter;
     [SerializeField] private CoinCounter _coinCounter;
 
+    [SerializeField] private GameObject _enemyExplosion;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            Destroy(collision.gameObject);
+            StartCoroutine(ObjectCollision(collision.gameObject));
 
             _coinCounter.AddCoins(1);
         }
@@ -19,13 +21,30 @@ public class CollisionDetector : MonoBehaviour
         {
             _lifeCounter.DecreaseLife();
 
+
+            GameObject explosion = Instantiate(_enemyExplosion);
+            explosion.transform.position = collision.gameObject.transform.position;
+            Destroy(explosion, 0.75f);
+
+
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Heart"))
         {
             _lifeCounter.IncreaseLife();
 
-            Destroy(collision.gameObject);
+            StartCoroutine(ObjectCollision(collision.gameObject));
+        }
+    }
+
+    private IEnumerator ObjectCollision(GameObject gameObject)
+    {
+        gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        Destroy(gameObject, 0.25f);
+        while (gameObject != null)
+        {
+            gameObject.transform.Translate(Vector2.up * Time.deltaTime * 30);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

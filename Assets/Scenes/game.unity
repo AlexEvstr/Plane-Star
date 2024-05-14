@@ -3098,6 +3098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeCounter: {fileID: 1910184538}
   _coinCounter: {fileID: 1910184540}
+  _enemyExplosion: {fileID: 4772312077003605107, guid: 662a46c780abe426dbca9af87ec95cf5, type: 3}
 --- !u!1 &1910184535
 GameObject:
   m_ObjectHideFlags: 0
