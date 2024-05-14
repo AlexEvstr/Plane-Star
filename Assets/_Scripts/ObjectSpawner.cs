@@ -9,11 +9,11 @@ public class InfiniteObjectSpawner : MonoBehaviour
     private float spawnX = 4.0f;
     private float minY = -4.0f;
     private float maxY = 4.0f;
-    private float spawnInterval = 1.0f; // Интервал между спавнами
+    private float spawnInterval = 1.0f;
+    public LayerMask ignoreLayer;
 
     void Start()
     {
-        // Начинаем бесконечный спавн объектов
         InvokeRepeating(nameof(SpawnObject), spawnInterval, spawnInterval);
     }
 
@@ -29,8 +29,7 @@ public class InfiniteObjectSpawner : MonoBehaviour
             float randomY = Random.Range(minY, maxY);
             spawnPosition = new Vector2(spawnX, randomY);
 
-            // Проверка на перекрытие других объектов
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 0.5f);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 0.5f, ~ignoreLayer);
             if (colliders.Length > 0)
             {
                 validPosition = false;

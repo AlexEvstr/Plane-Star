@@ -22,6 +22,6 @@ public class CoinCounter : MonoBehaviour
 
     private void UpdateCoinText()
     {
-        coinText.text = coinCount.ToString() + "x";
+        coinText.text = "x" + coinCount.ToString();
     }
 }

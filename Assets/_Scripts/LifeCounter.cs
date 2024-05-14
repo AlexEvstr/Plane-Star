@@ -33,6 +33,6 @@ public class LifeCounter : MonoBehaviour
 
     private void UpdateLifeText()
     {
-        lifeText.text = lives.ToString();
+        lifeText.text = "x" + lives.ToString();
     }
 }

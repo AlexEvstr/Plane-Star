@@ -1011,7 +1011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1283262199}
   - component: {fileID: 1283262198}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723954216}
   - component: {fileID: 1723954215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 1848337118}
   - component: {fileID: 1848337119}
   - component: {fileID: 1848337120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
