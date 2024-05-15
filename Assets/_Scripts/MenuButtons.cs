@@ -7,6 +7,7 @@ public class MenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private GameObject _tutorialPanel;
 
     [SerializeField] private GameObject _audioOn;
     [SerializeField] private GameObject _audioOff;
@@ -86,5 +87,15 @@ public class MenuButtons : MonoBehaviour
     {
         _audioSource.PlayOneShot(_clickBtnSound);
         if (CanVibration) Vibration.VibratePop();
+    }
+
+    public void OpenTutorial()
+    {
+        _tutorialPanel.SetActive(true);
+    }
+
+    public void CloseTutorial()
+    {
+        _tutorialPanel.SetActive(false);
     }
 }
